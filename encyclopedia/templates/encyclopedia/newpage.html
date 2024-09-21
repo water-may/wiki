@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia: Create New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+    <div class="create_new">
+        <form action="{% url 'NewPage' %}" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <label for="title">Enter your title here: </label>
+                <input type="text" name="title" required="">
+                <br>
+                <label for="md_field">Enter your md file content for the page here:</label>
+                <br>
+                <hr width="80%" align="left" >
+                <textarea name="md_field" required="true"></textarea>
+                <br>
+                <hr width="80%" align="left" >
+                <input type="submit" id="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+    
+{% endblock %}

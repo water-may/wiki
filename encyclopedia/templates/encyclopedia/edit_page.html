@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia: Edit Page --> {{ title }} 
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Page</h1>
+    <div class="create_new">
+        <form action="{% url 'EditPage' title %}" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <label for="md_field">Enter your md file content for the page here:</label>
+                <br>
+                <hr width="80%" align="left" >
+                <textarea name="md_field" required="true">{{ content }}</textarea>
+                <br>
+                <hr width="80%" align="left" >
+                <input type="submit" id="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+    
+{% endblock %}
